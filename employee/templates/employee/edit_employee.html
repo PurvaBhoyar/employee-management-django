@@ -1,0 +1,69 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Employee</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Your custom style -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #e0f7fa, #e0f2f1);
+            min-height: 100vh;
+            padding-top: 30px;
+        }
+        .container {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            font-weight: 700;
+            color: #004d40;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+        .btn-success {
+            background-color: #009688;
+            border: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+        .btn-success:hover {
+            background-color: #00796b;
+        }
+        .form-control:focus {
+            border-color: #009688;
+            box-shadow: 0 0 0 0.2rem rgba(0,150,136,.25);
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Edit Employee</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">Update</button>
+        <a href="{% url 'employee_list' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+
+</div>
+
+</body>
+</html>
